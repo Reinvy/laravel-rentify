@@ -33,6 +33,15 @@ class Transaction extends Model
         'ended_at' => 'date',
     ];
 
+    public function generateUniqueTrxId()
+    {
+        $prefix = 'TRS';
+        do {
+            $trxId = $prefix . '-' . mt_rand(100000, 999999);
+        } while (self::where('trx_id', $trxId)->exists());
+        return $trxId;
+    }
+
     public function product()
     {
         return $this->belongsTo(Product::class);
