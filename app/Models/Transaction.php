@@ -30,4 +30,14 @@ class Transaction extends Model
         'started_at' => 'date',
         'ended_at' => 'date',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
 }
