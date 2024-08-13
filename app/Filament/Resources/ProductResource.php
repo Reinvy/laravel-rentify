@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductResource\Pages;
 use App\Filament\Resources\ProductResource\RelationManagers;
+use App\Filament\Resources\ProductResource\RelationManagers\PhotosRelationManager;
 use App\Models\Brand;
 use App\Models\Product;
 use Filament\Forms;
@@ -28,6 +29,7 @@ class ProductResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('thumbnail')
+                    ->image()
                     ->required(),
                 Forms\Components\Textarea::make('about')
                     ->required()
@@ -115,7 +117,7 @@ class ProductResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            PhotosRelationManager::class,
         ];
     }
 

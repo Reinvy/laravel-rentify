@@ -30,6 +30,7 @@ class StoreResource extends Resource
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('thumbnail')
+                    ->image()
                     ->required(),
                 Forms\Components\Toggle::make('is_open')
                     ->required(),
