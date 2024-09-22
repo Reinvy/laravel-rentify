@@ -14,7 +14,7 @@
 <body>
     <main class="max-w-[640px] mx-auto min-h-screen flex flex-col relative has-[#Bottom-nav]:pb-[144px]">
         <div id="Top-navbar" class="flex items-center justify-between pt-5 px-5">
-            <a href="index.html" class="flex shrink-0">
+            <a href="{{ route('index') }}" class="flex shrink-0">
                 <img src="{{ asset('assets/images/logos/logo.svg') }}" alt="logo" />
             </a>
             <a href="#" class="w-11 h-11 flex shrink-0">
@@ -123,7 +123,7 @@
             <div class="bg-white/50 backdrop-blur-sm absolute w-full h-full"></div>
             <ul class="flex items-center gap-3 justify-evenly p-5 relative z-10">
                 <li>
-                    <a href="index.html">
+                    <a href="{{ route('index') }}">
                         <div
                             class="group flex flex-col items-center text-center gap-2 transition-all duration-300 hover:text-black">
                             <div class="w-6 h-6 flex shrink-0">
