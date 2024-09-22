@@ -35,4 +35,9 @@ class FrontController extends Controller
             ->get();
         return view('gadgets', compact('products', 'brand', 'category'));
     }
+
+    public function details(Product $product)
+    {
+        return view('details', compact('product'));
+    }
 }

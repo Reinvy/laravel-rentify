@@ -51,7 +51,8 @@
             <div class="swiper w-full h-fit">
                 <div class="swiper-wrapper">
                     @forelse ($products as $product)
-                        <a href="details.html" class="swiper-slide max-w-[150px] first-of-type:ml-5 last-of-type:mr-5">
+                        <a href="{{ route('details', $product->slug) }}"
+                            class="swiper-slide max-w-[150px] first-of-type:ml-5 last-of-type:mr-5">
                             <div class="flex flex-col gap-3 bg-white">
                                 <div
                                     class="h-[130px] flex shrink-0 items-center rounded-2xl overflow-hidden bg-[#F6F6F6]">
@@ -88,7 +89,7 @@
             <div class="flex flex-col gap-5">
 
                 @forelse ($randomProducts as $product)
-                    <a href="details.html" class="card">
+                    <a href="{{ route('details', $product->slug) }}" class="card">
                         <div class="flex items-center gap-3">
                             <div class="w-20 h-20 flex shrink-0 rounded-2xl overflow-hidden bg-[#F6F6F6] items-center">
                                 <div class="w-full h-[50px] flex shrink-0 justify-center">

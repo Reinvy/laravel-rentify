@@ -13,7 +13,7 @@
 <body>
     <main class="max-w-[640px] mx-auto min-h-screen flex flex-col relative has-[#Bottom-nav]:pb-[144px]">
         <div id="Top-navbar" class="flex items-center justify-between px-5 pt-5 w-full">
-            <a href="choose-brands.html">
+            <a href="{{ url()->previous() }}">
                 <div class="size-[44px] flex shrink-0">
                     <img src=" {{ asset('assets/images/icons/arrow-left.svg') }} " alt="icon" />
                 </div>
@@ -38,7 +38,7 @@
             <h2 class="text-lg leading-[27px] font-semibold">Explore Phones</h2>
             <div class="flex flex-col gap-5">
                 @forelse ($products as $product)
-                    <a href="details.html" class="card">
+                    <a href="{{ route('details', $product->slug) }}" class="card">
                         <div class="flex items-center gap-3">
                             <div class="w-20 h-20 flex shrink-0 rounded-2xl overflow-hidden bg-[#F6F6F6] items-center">
                                 <div class="w-full h-[50px] flex shrink-0 justify-center">

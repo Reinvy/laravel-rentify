@@ -9,7 +9,7 @@ Route::get('/category/{category:slug}', [FrontController::class, 'category'])->n
 
 Route::get('/brand/{brand:slug}/products', [FrontController::class, 'brand'])->name('brand');
 
-Route::get('/details/{product:slug}', [FrontController::class, 'category'])->name('details');
+Route::get('/details/{product:slug}', [FrontController::class, 'details'])->name('details');
 
 Route::get('/booking/{product:slug}', [FrontController::class, 'category'])->name('booking');
 
