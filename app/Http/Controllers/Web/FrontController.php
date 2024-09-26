@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreBookingRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Store;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -39,5 +41,30 @@ class FrontController extends Controller
     public function details(Product $product)
     {
         return view('details', compact('product'));
+    }
+
+    public function booking(Product $product)
+    {
+        $stores = Store::all();
+        return view('booking', compact('product', 'stores'));
+    }
+
+    public function bookingSave(StoreBookingRequest $request, Product $product)
+    {
+        $bookingData = $request->only([
+            'duration',
+            'started_at',
+            'store_id',
+            'delivery_method',
+            'address'
+        ]);
+        session($bookingData);
+        return redirect()->route('checkout', $product->slug);
+    }
+
+    public function checkout(Product $product)
+    {
+        $dump = session('delivery_method');
+        dd($dump);
     }
 }

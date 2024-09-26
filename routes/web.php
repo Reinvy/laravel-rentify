@@ -11,16 +11,16 @@ Route::get('/brand/{brand:slug}/products', [FrontController::class, 'brand'])->n
 
 Route::get('/details/{product:slug}', [FrontController::class, 'details'])->name('details');
 
-Route::get('/booking/{product:slug}', [FrontController::class, 'category'])->name('booking');
+Route::get('/booking/{product:slug}', [FrontController::class, 'booking'])->name('booking');
 
-Route::post('/booking/{product:slug/save}', [FrontController::class, 'category'])->name('booking.save');
+Route::post('/booking/{product:slug}/save', [FrontController::class, 'bookingSave'])->name('booking.save');
 
-Route::get('/success-booking/{transaction}', [FrontController::class, 'category'])->name('success.booking');
+Route::get('/success-booking/{transaction}', [FrontController::class, 'successBooking'])->name('success.booking');
 
-Route::post('/checkout/finish', [FrontController::class, 'category'])->name('checkout.store');
+Route::post('/checkout/finish', [FrontController::class, 'checkoutStore'])->name('checkout.store');
 
-Route::get('/checkout/{product:slug}/payment', [FrontController::class, 'category'])->name('checkout');
+Route::get('/checkout/{product:slug}/payment', [FrontController::class, 'checkout'])->name('checkout');
 
-Route::get('/transactions', [FrontController::class, 'category'])->name('transactions');
+Route::get('/transactions', [FrontController::class, 'transactions'])->name('transactions');
 
-Route::post('/transactions/details', [FrontController::class, 'category'])->name('transactions.details');
+Route::post('/transactions/details', [FrontController::class, 'transactionsDetails'])->name('transactions.details');

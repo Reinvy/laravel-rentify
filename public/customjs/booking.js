@@ -3,8 +3,11 @@ const minus = document.getElementById("Minus");
 const plus = document.getElementById("Plus");
 const count = document.getElementById("CountDays");
 const days = document.getElementById("Days");
+const duration = document.getElementById("Duration");
 const totalPrice = document.getElementById("Total");
-const defaultPrice = 1250000;
+const productPrice = document.getElementById("ProductPrice");
+
+const defaultPrice = productPrice.value;
 
 function updateTotalPrice() {
     let subTotal = days.value * defaultPrice;
@@ -17,6 +20,7 @@ minus.addEventListener("click", function() {
         currentCount -= 1;
         count.innerText = currentCount;
         days.value = currentCount;
+        duration.value = currentCount;
         updateTotalPrice();
     }
 });
@@ -26,6 +30,7 @@ plus.addEventListener("click", function() {
     currentCount += 1;
     count.innerText = currentCount;
     days.value = currentCount;
+    duration.value = currentCount;
     updateTotalPrice();
 });
 
@@ -46,7 +51,7 @@ datePicker.addEventListener('change', function () {
         btnText.classList.add("font-semibold");
     } else {
         btnText.innerText = "Select date"
-        btnText.classList.remove("font-semibold"); 
+        btnText.classList.remove("font-semibold");
     }
 });
 
@@ -64,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].classList.remove("active", "ring-2", "ring-[#FCCF2F]");
         }
-        
+
         document.getElementById(pageName).classList.remove("hidden");
         elmnt.classList.add("active", "ring-2", "ring-[#FCCF2F]");
     };
@@ -84,11 +89,14 @@ function toggleRequiredOptions() {
         storeRadios.forEach(radio => {
             radio.required = true;
         });
-        addressTextarea.required = false;
+        // addressTextarea.required = false;
+        addressTextarea.value = 'Diambil ditoko';
+
     } else if (deliveryRadio.checked) {
         storeRadios.forEach(radio => {
             radio.required = false;
         });
-        addressTextarea.required = true;
+        // addressTextarea.required = true;
+        addressTextarea.value = '';
     }
 }
