@@ -70,13 +70,13 @@
                     </div>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <label for="Phone" class="font-semibold">Phone Number</label>
+                    <label for="PhoneNumber" class="font-semibold">Phone Number</label>
                     <div
                         class="group w-full rounded-2xl border border-[#EDEEF0] p-[18px_14px] flex items-center gap-3 relative transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FCCF2F]">
                         <div class="w-6 h-6 flex shrink-0">
                             <img src="{{ asset('assets/images/icons/call.svg') }}" alt="icon">
                         </div>
-                        <input type="tel" name="phone" id="Phone"
+                        <input type="tel" name="phone_number" id="PhoneNumber"
                             class="appearance-none outline-none rounded-2xl w-full placeholder:font-normal placeholder:text-black font-semibold text-sm leading-[24px]"
                             placeholder="Write your phone number" required>
                     </div>
@@ -158,7 +158,7 @@
                     </div>
                 </div>
                 <label class="flex items-center gap-[6px]">
-                    <input type="checkbox" name=""
+                    <input type="checkbox" name="checked" id="Checked"
                         class="w-[24px] h-[24px] appearance-none checked:border-[5px] checked:border-solid checked:border-white rounded-[10px] checked:bg-[#FCCF2F] ring-1 ring-[#EDEEF0] transition-all duration-300"
                         required />
                     <p class="font-semibold text-sm leading-[21px]">Saya benar telah transfer pembayaran</p>
@@ -175,7 +175,7 @@
         </form>
     </main>
 
-    <script src="{{ asset('costumjs/checkout.js') }}"></script>
+    <script src="{{ asset('customjs/checkout.js') }}"></script>
 </body>
 
 </html>

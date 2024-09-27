@@ -67,6 +67,7 @@
             class="flex flex-col gap-[30px] mt-[30px]">
             @csrf
             <input type="hidden" value="{{ $product->price }}", id="ProductPrice">
+            <input type="hidden" name="delivery_method" value="pickup", id="DeliveryMethod">
             <input type="hidden" name="duration" id="Duration" value="1" class="absolute -z-10 opacity-0 w-1"
                 required />
             <div class="flex items-center justify-between px-5">
@@ -94,7 +95,8 @@
                     </div>
                     <button type="button" id="DateTriggerBtn" class="w-full appearance-none text-left"
                         onclick="document.getElementById('date').showPicker()">Select date</button>
-                    <input type="date" name="started_at" id="date" class="absolute -z-10 opacity-0" required />
+                    <input type="date" name="started_at" id="date" class="absolute -z-10 opacity-0"
+                        required />
                 </div>
             </div>
             <div class="flex flex-col px-5 gap-2">

@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // funtion for changing required atribute
 function toggleRequiredOptions() {
     const pickupRadio = document.getElementById('Pickup');
+    const deliveryMethod = document.getElementById("DeliveryMethod");
     const deliveryRadio = document.getElementById('Delivery');
     const storeRadios = document.getElementsByName('store');
     const addressTextarea = document.getElementsByName('address')[0];
@@ -91,12 +92,13 @@ function toggleRequiredOptions() {
         });
         // addressTextarea.required = false;
         addressTextarea.value = 'Diambil ditoko';
-
+        deliveryMethod.value = 'pickup';
     } else if (deliveryRadio.checked) {
         storeRadios.forEach(radio => {
             radio.required = false;
         });
         // addressTextarea.required = true;
         addressTextarea.value = '';
+        deliveryMethod.value = 'delivery';
     }
 }
