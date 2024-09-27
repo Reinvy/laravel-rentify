@@ -115,12 +115,12 @@
                     </div>
                     <div class="flex flex-col gap-[2px]">
                         <div class="flex items-center w-fit gap-1">
-                            <p class="font-semibold">Sewa Angga Indonesia</p>
+                            <p class="font-semibold">Bahrul Ulumul Haq</p>
                             <div class="w-[18px] h-[18px] flex shrink-0">
                                 <img src="{{ asset('assets/images/icons/verify.svg') }}" alt="verify">
                             </div>
                         </div>
-                        <p class="text-[#6E6E70]">8008129839</p>
+                        <p class="text-[#6E6E70]">8008129124</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
@@ -130,12 +130,12 @@
                     </div>
                     <div class="flex flex-col gap-[2px]">
                         <div class="flex items-center w-fit gap-1">
-                            <p class="font-semibold">Sewa Angga Indonesia</p>
+                            <p class="font-semibold">Bahrul Ulumul Haq</p>
                             <div class="w-[18px] h-[18px] flex shrink-0">
                                 <img src="{{ asset('assets/images/icons/verify.svg') }}" alt="verify">
                             </div>
                         </div>
-                        <p class="text-[#6E6E70]">12379834983281</p>
+                        <p class="text-[#6E6E70]">12379831423281</p>
                     </div>
                 </div>
             </div>
