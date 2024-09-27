@@ -64,7 +64,16 @@ class FrontController extends Controller
 
     public function checkout(Product $product)
     {
-        $dump = session('delivery_method');
-        dd($dump);
+        $duration = session('duration');
+
+        $insurance = 900000;
+        $ppn = 0.11;
+        $price = $product->price;
+
+        $subTotal =   $price * $duration;
+        $totalPpn = $subTotal * $ppn;
+        $grandTotal = $subTotal + $totalPpn + $insurance;
+
+        return view('checkout', compact('product', 'subTotal', 'totalPpn', 'grandTotal', 'insurance'));
     }
 }
