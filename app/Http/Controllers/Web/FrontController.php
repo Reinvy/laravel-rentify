@@ -163,11 +163,12 @@ class FrontController extends Controller
             return redirect()->back()->withErrors(['error' => 'Transaction not found.']);
         }
 
+        $insurance = 900000;
         $ppn = 0.11;
         $totalPpn = $details->product->price * $ppn;
         $duration = $details->duration;
         $subTotal = $details->product->price * $duration;
 
-        return view('transactions_details', compact('details', 'totalPpn', 'subTotal'));
+        return view('transactions_details', compact('details', 'totalPpn', 'subTotal', 'insurance'));
     }
 }
