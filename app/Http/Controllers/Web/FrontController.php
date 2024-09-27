@@ -133,4 +133,9 @@ class FrontController extends Controller
 
         return redirect()->route('success.booking', $bookingTransactionId);
     }
+
+    public function successBooking(Transaction $transaction)
+    {
+        return view('success_booking', compact('transaction'));
+    }
 }
