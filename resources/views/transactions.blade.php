@@ -2,131 +2,76 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="{{ asset('output.css') }}" rel="stylesheet" />
-    <link href="{{ asset('main.css') }}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ asset('output.css') }}" rel="stylesheet">
+    <link href="{{ asset('main.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
     <main class="max-w-[640px] mx-auto min-h-screen flex flex-col relative has-[#Bottom-nav]:pb-[144px]">
-        <div id="Top-navbar" class="flex items-center justify-between pt-5 px-5">
-            <a href="{{ route('index') }}" class="flex shrink-0">
-                <img src="{{ asset('assets/images/logos/logo.svg') }}" alt="logo" />
-            </a>
-            <a href="#" class="w-11 h-11 flex shrink-0">
-                <img src="{{ asset('assets/images/icons/notifications.svg') }}" alt="icon" />
-            </a>
-        </div>
-        <section id="Categories" class="flex flex-col gap-[10px] mt-[30px] px-5">
-            <h2 class="font-semibold text-lg leading-[27px]">By Categories</h2>
-            <div class="grid grid-cols-3 gap-4">
-                @forelse ($categories as $category)
-                    <a href="{{ route('category', $category->slug) }}" class="card">
-                        <div
-                            class="rounded-2xl ring-1 ring-[#EDEEF0] p-4 flex flex-col items-center gap-3 text-center transition-all duration-300 hover:ring-2 hover:ring-[#FCCF2F]">
-                            <div class="w-[50px] h-[50px] flex shrink-0">
-                                <img src="{{ Storage::url($category->icon) }}" alt="icon" />
-                            </div>
-                            <p class="font-semibold">{{ $category->name }}</p>
-                        </div>
-                    </a>
-                @empty
-                    <p>No categories</p>
-                @endforelse
-
-            </div>
-        </section>
-        <a id="promo" href="#" class="px-5 mt-[30px]">
-            <div class="w-full aspect-[353/100] flex shrink-0 overflow-hidden rounded-2xl">
-                <img src=" {{ asset('assets/images/backgrounds/promo.png') }}" class="w-full h-full object-cover"
-                    alt="promo" />
-            </div>
-        </a>
-        <section id="New" class="flex flex-col gap-[10px] mt-[30px]">
-            <h2 class="font-semibold text-lg leading-[27px] px-5">Brand New</h2>
-            <div class="swiper w-full h-fit">
-                <div class="swiper-wrapper">
-                    @forelse ($products as $product)
-                        <a href="{{ route('details', $product->slug) }}"
-                            class="swiper-slide max-w-[150px] first-of-type:ml-5 last-of-type:mr-5">
-                            <div class="flex flex-col gap-3 bg-white">
-                                <div
-                                    class="h-[130px] flex shrink-0 items-center rounded-2xl overflow-hidden bg-[#F6F6F6]">
-                                    <div class="h-[70px] w-full flex shrink-0 justify-center">
-                                        <img src="{{ Storage::url($product->thumbnail) }}"
-                                            class="w-full h-full object-contain" alt="thumbnail" />
-                                    </div>
-                                </div>
-                                <div class="flex flex-col gap-1">
-                                    <p class="font-semibold break-words">{{ $product->name }}</p>
-                                    <div class="flex items-center justify-between">
-                                        <p class="text-sm leading-[21px] text-[#6E6E70]">{{ $product->category->name }}
-                                        </p>
-                                        <div class="flex items-center gap-[2px]">
-                                            <div class="w-4 h-4 flex shrink-0">
-                                                <img src="{{ asset('assets/images/icons/Star 1.svg') }}"
-                                                    alt="star" />
-                                            </div>
-                                            <p class="font-semibold text-sm leading-[21px]">4/5</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    @empty
-                        <p>No products</p>
-                    @endforelse
-
+        <section id="CheckBook" class="w-full flex flex-col gap-10 px-5 items-center pt-20 max-w-[353px] m-auto">
+            <div class="size-[100px] rounded-full overflow-hidden bg-[#FCCF2F] flex items-center justify-center">
+                <div class="flex shrink-0 size-[46px]">
+                    <img src="{{ asset('assets/images/icons/crown.svg') }}" alt="crown" class="size-full" />
                 </div>
             </div>
-        </section>
-        <section id="Recommendation" class="flex flex-col gap-[10px] mt-[30px] px-5">
-            <h2 class="font-semibold text-lg leading-[27px]">You Might Like</h2>
-            <div class="flex flex-col gap-5">
-
-                @forelse ($randomProducts as $product)
-                    <a href="{{ route('details', $product->slug) }}" class="card">
-                        <div class="flex items-center gap-3">
-                            <div class="w-20 h-20 flex shrink-0 rounded-2xl overflow-hidden bg-[#F6F6F6] items-center">
-                                <div class="w-full h-[50px] flex shrink-0 justify-center">
-                                    <img src="{{ asset('assets/images/thumbnails/iphone15pro-digitalmat-gallery-3-202309-Photoroom 1.png') }} "
-                                        class="h-full w-full object-contain" alt="thumbnail" />
-                                </div>
-                            </div>
-                            <div class="w-full flex flex-col gap-1">
-                                <p class="font-semibold">{{ $product->name }}</p>
-                                <div class="flex items-center justify-between">
-                                    <p class="text-sm leading-[21px] text-[#6E6E70]">Rp
-                                        {{ number_format($product->price, 0, ',', '.') }}/day</p>
-                                    <div class="flex items-center w-fit gap-[2px]">
-                                        <div class="w-4 h-4 flex shrink-0">
-                                            <img src="{{ asset('assets/images/icons/Star 1.svg') }}" alt="star" />
-                                        </div>
-                                        <p class="text-sm leading-[21px]"><span class="font-semibold">4/5</span> <span
-                                                class="text-[#6E6E70]">(777)</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                @empty
-                    <p>No products</p>
-                @endforelse
-
+            <div class="flex flex-col gap-2 items-center">
+                <h1 class="text-2xl leading-[36px] font-bold">Check Booking</h1>
+                <p class="leading-[30px] text-[#6E6E70] text-center">Masukkan details berikut untuk melihat status
+                    pemesanan Anda saat ini</p>
             </div>
+
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="py-3 w-full rounded-3xl bg-[#FCCF2F] text-white">
+                        {{ $error }}
+                    </div>
+                @endforeach
+            @endif
+
+            <form method="POST" action="{{ route('transactions.details') }}"
+                class="flex flex-col gap-5 rounded-[20px] overflow-hidden outline outline-1 outline-[#E9E8ED] p-5 w-full">
+                @csrf
+                <div class="flex flex-col gap-2">
+                    <label for="phone" class="font-semibold">Phone Number</label>
+                    <div
+                        class="group w-full rounded-2xl border border-[#EDEEF0] p-[18px_14px] flex items-center gap-3 relative transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FCCF2F]">
+                        <div class="w-6 h-6 flex shrink-0">
+                            <img src="{{ asset('assets/images/icons/call.svg') }}" alt="icon" />
+                        </div>
+                        <input type="tel" name="phone_number" id="phone"
+                            class="appearance-none outline-none w-full placeholder:font-normal placeholder:text-black font-semibold text-sm leading-[24px]"
+                            placeholder="Write your phone number" required />
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="bookId" class="font-semibold">Book ID</label>
+                    <div
+                        class="group w-full rounded-2xl border border-[#EDEEF0] p-[18px_14px] flex items-center gap-3 relative transition-all duration-300 focus-within:ring-2 focus-within:ring-[#FCCF2F]">
+                        <div class="w-6 h-6 flex shrink-0">
+                            <img src="{{ asset('assets/images/icons/crown.svg') }}" alt="icon" />
+                        </div>
+                        <input type="text" name="trx_id" id="bookId"
+                            class="appearance-none outline-none w-full placeholder:font-normal placeholder:text-black font-semibold text-sm leading-[24px]"
+                            placeholder="Write your booking id" required />
+                    </div>
+                </div>
+                <button type="submit"
+                    class="rounded-full p-[12px_24px] bg-[#FCCF2F] font-bold w-full text-center">Check My
+                    Booking</button>
+            </form>
         </section>
         <div id="Bottom-nav"
             class="fixed bottom-0 max-w-[640px] w-full mx-auto border-t border-[#F1F1F1] overflow-hidden z-10">
             <div class="bg-white/50 backdrop-blur-sm absolute w-full h-full"></div>
             <ul class="flex items-center gap-3 justify-evenly p-5 relative z-10">
                 <li>
-                    <a href="{{ route('index') }}">
+                    <a href="index.html">
                         <div
-                            class="group flex flex-col items-center text-center gap-2 transition-all duration-300 hover:text-black">
+                            class="group flex flex-col items-center text-center gap-2 transition-all duration-300 hover:text-black text-[#9D9DAD]">
                             <div class="w-6 h-6 flex shrink-0">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -145,16 +90,16 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('transactions') }}">
+                    <a href="">
                         <div
-                            class="group flex flex-col items-center text-center gap-2 transition-all duration-300 hover:text-black text-[#9D9DAD]">
+                            class="group flex flex-col items-center text-center gap-2 transition-all duration-300 hover:text-black">
                             <div class="w-6 h-6 flex shrink-0">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.875 2V5" stroke="currentColor" stroke-width="2"
-                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M16.875 2V5" stroke="currentColor" stroke-width="2"
-                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M8.875 2V5" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M16.875 2V5" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
                                     <path d="M7.875 13H15.875" stroke="currentColor" stroke-width="2"
                                         stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                                     <path d="M7.875 17H12.875" stroke="currentColor" stroke-width="2"
@@ -220,9 +165,6 @@
             </ul>
         </div>
     </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="js/browse.js"></script>
 </body>
 
 </html>
