@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('output.css') }}" rel="stylesheet">
-    <link href="{{ asset('main.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
-</head>
-
-<body>
+@extends('layouts.app')
+@section('title', 'Rentify')
+@section('content')
     <main class="max-w-[640px] mx-auto min-h-screen flex flex-col relative has-[#Bottom-nav]:pb-[144px]">
         <section id="CheckBook" class="w-full flex flex-col gap-10 px-5 items-center pt-20 max-w-[353px] m-auto">
             <div class="size-[100px] rounded-full overflow-hidden bg-[#FCCF2F] flex items-center justify-center">
@@ -59,8 +49,7 @@
                             placeholder="Write your booking id" required />
                     </div>
                 </div>
-                <button type="submit"
-                    class="rounded-full p-[12px_24px] bg-[#FCCF2F] font-bold w-full text-center">Check My
+                <button type="submit" class="rounded-full p-[12px_24px] bg-[#FCCF2F] font-bold w-full text-center">Check My
                     Booking</button>
             </form>
         </section>
@@ -79,8 +68,8 @@
                                         d="M17.325 18.98H7.92495C7.50495 18.98 7.03495 18.65 6.89495 18.25L2.75495 6.66999C2.16496 5.00999 2.85496 4.49999 4.27496 5.51999L8.17495 8.30999C8.82495 8.75999 9.56495 8.52999 9.84495 7.79999L11.605 3.10999C12.165 1.60999 13.095 1.60999 13.655 3.10999L15.415 7.79999C15.695 8.52999 16.435 8.75999 17.075 8.30999L20.735 5.69999C22.295 4.57999 23.045 5.14999 22.405 6.95999L18.365 18.27C18.215 18.65 17.745 18.98 17.325 18.98Z"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" />
-                                    <path d="M7.125 22H18.125" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M7.125 22H18.125" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                     <path d="M10.125 14H15.125" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
@@ -100,14 +89,14 @@
                                         stroke-linecap="round" stroke-linejoin="round" />
                                     <path d="M16.875 2V5" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"
                                         stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M7.875 13H15.875" stroke="currentColor" stroke-width="2"
-                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M7.875 17H12.875" stroke="currentColor" stroke-width="2"
-                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M7.875 13H15.875" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M7.875 17H12.875" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
                                     <path
                                         d="M16.875 3.5C20.205 3.68 21.875 4.95 21.875 9.65V15.83C21.875 19.95 20.875 22.01 15.875 22.01H9.875C4.875 22.01 3.875 19.95 3.875 15.83V9.65C3.875 4.95 5.545 3.69 8.875 3.5H16.875Z"
-                                        stroke="currentColor" stroke-width="2" stroke-miterlimit="10"
-                                        stroke-linecap="round" stroke-linejoin="round" />
+                                        stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </div>
                             <p class="font-semibold text-sm leading-[21px] text-[]">Orders</p>
@@ -165,6 +154,4 @@
             </ul>
         </div>
     </main>
-</body>
-
-</html>
+@endsection

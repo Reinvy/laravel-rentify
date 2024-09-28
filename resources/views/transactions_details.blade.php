@@ -1,16 +1,6 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('output.css') }}" rel="stylesheet">
-    <link href="{{ asset('main.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
-</head>
-
-<body>
+@extends('layouts.app')
+@section('title', 'Rentify')
+@section('content')
     <main class="max-w-[640px] mx-auto min-h-screen flex flex-col relative has-[#Bottom-nav]:pb-[144px]">
         <div id="Top-navbar" class="flex items-center justify-between px-5 pt-5">
             <a href="{{ url()->previous() }}">
@@ -70,8 +60,8 @@
             <div class="flex items-center gap-[14px]">
                 <div class="w-20 h-20 flex shrink-0 rounded-2xl overflow-hidden bg-[#F6F6F6] items-center">
                     <div class="w-full h-[50px] flex shrink-0 justify-center">
-                        <img src="{{ Storage::url($details->product->thumbnail) }}"
-                            class="h-full w-full object-contain" alt="thumbnail">
+                        <img src="{{ Storage::url($details->product->thumbnail) }}" class="h-full w-full object-contain"
+                            alt="thumbnail">
                     </div>
                 </div>
                 <div class="w-full flex flex-col gap-2">
@@ -200,6 +190,4 @@
             </div>
         </div>
     </main>
-</body>
-
-</html>
+@endsection

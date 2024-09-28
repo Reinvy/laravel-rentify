@@ -1,16 +1,6 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('output.css') }}" rel="stylesheet">
-    <link href="{{ asset('main.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
-</head>
-
-<body>
+@extends('layouts.app')
+@section('title', 'Rentify')
+@section('content')
     <main class="max-w-[640px] mx-auto min-h-screen flex flex-col relative has-[#Bottom-nav]:pb-[144px]">
         <div id="Top-navbar" class="flex items-center justify-between px-5 pt-5">
             <a href="{{ url()->previous() }}">
@@ -125,8 +115,8 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <div class="w-[71px] h-[50px] flex shrink-0">
-                        <img src="{{ asset('assets/images/logos/mandiri.svg') }}"
-                            class="w-full h-full object-contain" alt="bank logo">
+                        <img src="{{ asset('assets/images/logos/mandiri.svg') }}" class="w-full h-full object-contain"
+                            alt="bank logo">
                     </div>
                     <div class="flex flex-col gap-[2px]">
                         <div class="flex items-center w-fit gap-1">
@@ -153,8 +143,7 @@
                             onclick="document.getElementById('Proof').click()">
                             Add an attachment
                         </button>
-                        <input type="file" name="proof" id="Proof" class="absolute -z-10 opacity-0"
-                            required>
+                        <input type="file" name="proof" id="Proof" class="absolute -z-10 opacity-0" required>
                     </div>
                 </div>
                 <label class="flex items-center gap-[6px]">
@@ -174,8 +163,7 @@
             </div>
         </form>
     </main>
-
+@endsection
+@push('after-scripts')
     <script src="{{ asset('customjs/checkout.js') }}"></script>
-</body>
-
-</html>
+@endpush

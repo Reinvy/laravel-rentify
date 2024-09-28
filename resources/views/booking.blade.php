@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('output.css') }}" rel="stylesheet">
-    <link href="{{ asset('main.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
-</head>
-
-<body>
+@extends('layouts.app')
+@section('title', 'Rentify')
+@section('content')
     <main class="max-w-[640px] mx-auto min-h-screen flex flex-col relative has-[#Bottom-nav]:pb-[144px]">
         <div id="Top-navbar" class="flex items-center justify-between px-5 pt-5">
             <a href="{{ url()->previous() }}">
@@ -89,8 +79,8 @@
                         <img src="{{ asset('assets/images/icons/minus.svg') }}" alt="minus" />
                     </button>
                     <p id="CountDays" class="font-semibold text-lg leading-[27px]">1</p>
-                    <input type="number" name="days" id="Days" value="1"
-                        class="absolute -z-10 opacity-0 w-1" required />
+                    <input type="number" name="days" id="Days" value="1" class="absolute -z-10 opacity-0 w-1"
+                        required />
                     <button type="button" id="Plus"
                         class="w-11 h-11 flex shrink-0 rounded-full transition-all duration-300 hover:ring-2 hover:ring-[#FCCF2F]">
                         <img src="{{ asset('assets/images/icons/plus.svg') }}" alt="plus" />
@@ -106,8 +96,7 @@
                     </div>
                     <button type="button" id="DateTriggerBtn" class="w-full appearance-none text-left"
                         onclick="document.getElementById('date').showPicker()">Select date</button>
-                    <input type="date" name="started_at" id="date" class="absolute -z-10 opacity-0"
-                        required />
+                    <input type="date" name="started_at" id="date" class="absolute -z-10 opacity-0" required />
                 </div>
             </div>
             <div class="flex flex-col px-5 gap-2">
@@ -148,16 +137,15 @@
                                     class="relative w-full rounded-2xl p-[18px_14px] border border-[#EDEEF0] transition-all duration-300 hover:ring-2 hover:ring-[#FCCF2F] has-[:checked]:ring-2 has-[:checked]:ring-[#FCCF2F]">
                                     <div class="flex items-center gap-3">
                                         <div class="w-6 h-6 flex shrink-0">
-                                            <img src="{{ asset('assets/images/icons/buildings.svg') }}"
-                                                alt="icon" />
+                                            <img src="{{ asset('assets/images/icons/buildings.svg') }}" alt="icon" />
                                         </div>
                                         <div class="flex flex-col gap-1">
                                             <p class="font-semibold text-sm leading-[21px]">{{ $store->name }}</p>
                                             <p class="text-xs leading-[18px] text-[#6E6E70]">{{ $store->address }}</p>
                                         </div>
                                     </div>
-                                    <input type="radio" value="{{ $store->id }}" name="store_id"
-                                        id="store_id" class="absolute -z-10 top-1/2 left-1/2 opacity-0" />
+                                    <input type="radio" value="{{ $store->id }}" name="store_id" id="store_id"
+                                        class="absolute -z-10 top-1/2 left-1/2 opacity-0" />
                                 </label>
                             @endforeach
 
@@ -198,8 +186,7 @@
             </div>
         </form>
     </main>
-
+@endsection
+@push('after-scripts')
     <script src="{{ asset('customjs/booking.js') }}"></script>
-</body>
-
-</html>
+@endpush
