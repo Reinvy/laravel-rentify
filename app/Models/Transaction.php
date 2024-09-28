@@ -33,7 +33,7 @@ class Transaction extends Model
         'ended_at' => 'date',
     ];
 
-    public function generateUniqueTrxId()
+    static public function generateUniqueTrxId()
     {
         $prefix = 'TRS';
         do {
