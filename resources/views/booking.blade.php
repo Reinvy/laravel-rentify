@@ -63,10 +63,21 @@
                     alt="promo" />
             </div>
         </a>
+
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <div class="py-3 w-full rounded-3xl bg-[#FCCF2F] text-white">
+                    {{ $error }}
+                </div>
+            @endforeach
+        @endif
+
+
         <form method="POST" action="{{ route('booking.save', $product->slug) }}"
             class="flex flex-col gap-[30px] mt-[30px]">
             @csrf
             <input type="hidden" value="{{ $product->price }}", id="ProductPrice">
+            <input type="hidden" name="store_id" value="", id="StoreId" required />
             <input type="hidden" name="delivery_method" value="pickup", id="DeliveryMethod">
             <input type="hidden" name="duration" id="Duration" value="1" class="absolute -z-10 opacity-0 w-1"
                 required />
