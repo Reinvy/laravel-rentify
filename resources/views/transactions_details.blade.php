@@ -13,7 +13,7 @@
 <body>
     <main class="max-w-[640px] mx-auto min-h-screen flex flex-col relative has-[#Bottom-nav]:pb-[144px]">
         <div id="Top-navbar" class="flex items-center justify-between px-5 pt-5">
-            <a href="finish.html">
+            <a href="{{ url()->previous() }}">
                 <div class="size-[44px] flex shrink-0">
                     <img src="{{ asset('assets/images/icons/arrow-left.svg') }}" alt="icon" />
                 </div>
@@ -70,8 +70,8 @@
             <div class="flex items-center gap-[14px]">
                 <div class="w-20 h-20 flex shrink-0 rounded-2xl overflow-hidden bg-[#F6F6F6] items-center">
                     <div class="w-full h-[50px] flex shrink-0 justify-center">
-                        <img src="{{ Storage::url($details->product->thumbnail) }}" class="h-full w-full object-contain"
-                            alt="thumbnail">
+                        <img src="{{ Storage::url($details->product->thumbnail) }}"
+                            class="h-full w-full object-contain" alt="thumbnail">
                     </div>
                 </div>
                 <div class="w-full flex flex-col gap-2">
